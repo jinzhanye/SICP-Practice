@@ -2,7 +2,7 @@
 ;fixed-point
 (define tolerance 0.00001)
 
-;*************************寻找不去点法解根
+;*************************寻找不动点法解根
 (define (fixed-point f first-guess)
   (define (close-enough? v1 v2)
     (< (abs (- v1 v2)) 

@@ -42,3 +42,10 @@
 (define (coprime? i n)
     (and (< i n)
          (= 1 (gcd i n))))
+
+;求导,即f'(x) = (f(x+dx) - f(x))/dx
+(define (deriv g)
+  (define dx 0.00001)
+  (lambda (x) 
+    (/ (- (g (+ x dx)) (g x))
+       dx)))
