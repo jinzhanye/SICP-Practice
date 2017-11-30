@@ -4,6 +4,9 @@
 (define (cube x)
   (* x x x))
 
+(define (displayln x)
+  (display x)
+  (newline))
 
 (define (close-enough? guess x); |guess^2 -x| < 0.001
   (< (abs (- (square guess) x)) 0.001))
@@ -49,3 +52,10 @@
   (lambda (x) 
     (/ (- (g (+ x dx)) (g x))
        dx)))
+
+;打印有理数
+(define (print-rat x)
+  (newline)
+  (display (numer x))
+  (display "/")
+  (display (denom x)))
