@@ -1,3 +1,4 @@
+(define nil #t)
 ; (define (sun-odd-squares tree)
 ;   (cond ((null? tree) 0)
 ;         ((not (pair? tree)) 
