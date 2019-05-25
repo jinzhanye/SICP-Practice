@@ -1,29 +1,34 @@
 (load "/Users/jinzhan/Desktop/dev/practiceProject/SICP/utility.scm")
 ;**********2.11
-;有理数运算
+;*****分数数据抽象
+(define (equla-rat? x y)
+  (= (* (numer x)(denom y))
+   (* (numer y)(denom x))))
+
+;*****分数运算
+;加
 (define (add-rat x y)
   (make-rate (+ (* (numer x) (denom y))
 			    (* (numer y) (denom x)))
 			 (* (denom x) (denom y))))
 
+;减
 (define (sub-rat x y)
   (make-rate (- (* (numer x) (denom y))
 			    (* (numer y) (denom x)))
 			 (* (denom x) (denom y))))	
-
+;乘
 (define (mul-rat x y)
   (make-rate (* (numer x) (numer y))
 			 (* (denom x) (denom y))))
-
+;除
 (define (div-rat x y)
   (make-rate (* (numer x) (denom y))
 			 (* (denom x) (numer y))))		
 
-;有理数数据抽象
-(define (equla-rat? x y)
-  (= (* (numer x)(denom y))
-	 (* (numer y)(denom x))))
-
+;*****化简可以在 
+;*****(1)进行操作运算后保存数据时进行，
+;*****(2)可以在取出数据时进行，根据具体业务选择不同的化简方式。
 ;简化版
 (define (make-rate n d)
   (let ((g (gcd n d)))
@@ -44,7 +49,7 @@
 ;**********2.12
 ;原始未简化版
 (define (make-rate n d) (cons n d))
-;在取分子、分母时简化
+;在取分子、分母时化简
 (define (numer x)
   (let ((g (gcd (car x) (cdr x))))
     (/ (car x) g)))
